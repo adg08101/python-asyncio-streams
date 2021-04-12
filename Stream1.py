@@ -1,4 +1,9 @@
 import asyncio
+import random
+
+
+def random_number():
+    print(random.randrange(100))
 
 async def handle_echo(reader, writer):
     data = await reader.read(100)
@@ -6,6 +11,9 @@ async def handle_echo(reader, writer):
     addr = writer.get_extra_info('peername')
 
     print(f"Received {message!r} from {addr!r}")
+
+    if message == 'rand':
+        random_number()
 
     print(f"Send: {message!r}")
     writer.write(data)

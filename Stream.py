@@ -16,4 +16,4 @@ async def tcp_echo_client(message):
     await writer.wait_closed()
 
 if __name__ == '__main__':
-    asyncio.run(tcp_echo_client('HelloWorld, from Cuba!'))
+    asyncio.run(tcp_echo_client('rand'))
