@@ -8,12 +8,12 @@ async def tcp_echo_client(message):
     writer.write(message.encode())
     await writer.drain()
 
-    data = await reader.read(100)
-    print(f'Received: {data.decode()!r}')
+    data = await reader.read(50)
+    print(data)
 
     print('Close the connection')
     writer.close()
     await writer.wait_closed()
 
 if __name__ == '__main__':
-    asyncio.run(tcp_echo_client('Hello World, from Cuba!'))
+    asyncio.run(tcp_echo_client('HelloWorld, from Cuba!'))
